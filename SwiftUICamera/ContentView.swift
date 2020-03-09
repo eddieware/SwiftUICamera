@@ -9,8 +9,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showSheet: Bool =  false
+    
     var body: some View {
-        Text("Hello, World!")
+        NavigationView{
+            VStack{
+                Image("placeholder")
+                .resizable()
+                    .frame(width: 300, height: 300)
+                
+                Button("Choose Picture"){
+                    self.showSheet = true
+                    
+                }.padding()
+                
+            }.navigationBarTitle("Camara Lasalle Demo")//FN Vstack
+            
+        }//FN Nav
     }
 }
 
