@@ -19,9 +19,17 @@ struct ContentView: View {
                     .frame(width: 300, height: 300)
                 
                 Button("Choose Picture"){
-                    self.showSheet = true
+                    self.showSheet = true // la hacemos verdadera para que cuando se pulse el boton inicie la accion del siguiente codigo
                     
                 }.padding()
+                    //El action sheet es accionado por el boton con la variable showSheet y es menu acendente
+                    .actionSheet(isPresented: $showSheet) {
+                        ActionSheet(title:Text("Seleccionar una foto"), message: Text("Elegir"), buttons: [.default(Text("Galeria de fotos")){
+                            //
+                            },
+                            .cancel()
+                        ])
+                }
                 
             }.navigationBarTitle("Camara Lasalle Demo")//FN Vstack
             
