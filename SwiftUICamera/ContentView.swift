@@ -10,6 +10,9 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var showSheet: Bool =  false
+    @State private var showImagePicker: Bool = false
+    @State private var sourceType: UIImagePickerController.SourceType = .camera
+    @State private var image: UIImage?
     
     var body: some View {
         NavigationView{
@@ -25,15 +28,27 @@ struct ContentView: View {
                     //El action sheet es accionado por el boton con la variable showSheet y es menu acendente
                     .actionSheet(isPresented: $showSheet) {
                         ActionSheet(title:Text("Seleccionar una foto"), message: Text("Elegir"), buttons: [.default(Text("Galeria de fotos")){
-                            //
+                            // misma logica para el Image picker
+                            //fuente imagen galeria
+                            self.showImagePicker = true
+                            self.sourceType = .photoLibrary
                             },
-                            .cancel()
+                            .default(Text("Camara")){
+                                //fuente de la imagen camara
+                                self.showImagePicker = true
+                                self.sourceType = .camera
+                                
+                            },
+                            .cancel() //opcion cancelar del action sheet
                         ])
                 }
                 
             }.navigationBarTitle("Camara Lasalle Demo")//FN Vstack
             
-        }//FN Nav
+        }.sheet(isPresented: $showImagePicker){//FN Nav
+            // seccion para mostrar la funcion de los botones ya se galeria o camara aqui se llamaran las funciones
+            ImagePicker(image: self.$image, sourceType: self.sourceType) //funcion para acceder a la galeria
+        }
     }
 }
 

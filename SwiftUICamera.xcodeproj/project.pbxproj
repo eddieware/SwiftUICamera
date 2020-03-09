@@ -13,7 +13,7 @@
 		C57436152416BD860011E746 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C57436142416BD860011E746 /* Assets.xcassets */; };
 		C57436182416BD860011E746 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C57436172416BD860011E746 /* Preview Assets.xcassets */; };
 		C574361B2416BD860011E746 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C57436192416BD860011E746 /* LaunchScreen.storyboard */; };
-		C57436242416BE390011E746 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57436232416BE390011E746 /* ImagePicker.swift */; };
+		C57436262416CBC30011E746 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57436252416CBC30011E746 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		C57436172416BD860011E746 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C574361A2416BD860011E746 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C574361C2416BD860011E746 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C57436232416BE390011E746 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		C57436252416CBC30011E746 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				C57436172416BD860011E746 /* Preview Assets.xcassets */,
-				C57436232416BE390011E746 /* ImagePicker.swift */,
+				C57436252416CBC30011E746 /* ImagePicker.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -150,7 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C574360F2416BD810011E746 /* AppDelegate.swift in Sources */,
-				C57436242416BE390011E746 /* ImagePicker.swift in Sources */,
+				C57436262416CBC30011E746 /* ImagePicker.swift in Sources */,
 				C57436112416BD810011E746 /* SceneDelegate.swift in Sources */,
 				C57436132416BD810011E746 /* ContentView.swift in Sources */,
 			);
