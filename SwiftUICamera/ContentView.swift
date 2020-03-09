@@ -17,11 +17,11 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             VStack{
-                Image("placeholder")
+                Image(uiImage: image ?? UIImage(named: "placeholder")!) //setea imagen seleccionada else place holder default
                 .resizable()
                     .frame(width: 300, height: 300)
                 
-                Button("Choose Picture"){
+                Button("Elegir Foto"){
                     self.showSheet = true // la hacemos verdadera para que cuando se pulse el boton inicie la accion del siguiente codigo
                     
                 }.padding()
@@ -47,7 +47,7 @@ struct ContentView: View {
             
         }.sheet(isPresented: $showImagePicker){//FN Nav
             // seccion para mostrar la funcion de los botones ya se galeria o camara aqui se llamaran las funciones
-            ImagePicker(image: self.$image, sourceType: self.sourceType) //funcion para acceder a la galeria
+            ImagePicker(image: self.$image, isShown: self.$showImagePicker, sourceType: self.sourceType) //funcion para acceder a la galeria
         }
     }
 }

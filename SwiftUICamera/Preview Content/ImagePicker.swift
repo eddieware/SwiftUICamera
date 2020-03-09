@@ -12,17 +12,24 @@ import SwiftUI
 class ImagePickerCoordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     //clase declarada para inicializar el binding image
     @Binding var image: UIImage?
+    @Binding var isShown: Bool
     
-    init(image: Binding<UIImage?>){
+    init(image: Binding<UIImage?>, isShown: Binding<Bool>){
         _image = image
+        _isShown = isShown
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let uiImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{ // EL as! SE CAMBIO A as? porque regresara un nullable object
             image = uiImage
+            isShown = false
             
         }
     }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        isShown = false
+    }
+    
 }
 
 struct ImagePicker: UIViewControllerRepresentable {
@@ -30,6 +37,7 @@ struct ImagePicker: UIViewControllerRepresentable {
     typealias Coordinator = ImagePickerCoordinator
     //
     @Binding var image: UIImage?
+    @Binding var isShown: Bool
     var sourceType: UIImagePickerController.SourceType = .camera
     
     
@@ -40,7 +48,7 @@ struct ImagePicker: UIViewControllerRepresentable {
     
     func makeCoordinator() ->ImagePicker.Coordinator {
         //some here
-        return ImagePickerCoordinator(image: $image) // le pasamos image para que regrese bindeable image
+        return ImagePickerCoordinator(image: $image, isShown: $isShown) // le pasamos image para que regrese bindeable image
     }
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
